@@ -1,0 +1,140 @@
+
+************************************************************************************************************************************
+
+R11     CICLO -  33        FECHA DE CORTE: 03/00/18           (R1140000)
+
+              REPORTE DE AJUSTES FACTURADOS SSM POR CICLO
+
+        ACEQU   QJ.LMODIF D                      909             1,253,002.53
+        ASORT   LA LAO MODIF POS PRE               1                   201.19
+        ECCPD   DJ.DATB PLANLALALA             2,130             1,101,003.64
+        ACEQU   QJ.LMODIF D                      909             1,253,002.53
+        ASOOT   LA LAO MODIF POS PRE               1                   201.19
+        SSORT   LA LAO LALAL POS PRE               1                   201.19
+        NSORT   LA LAO MODIF POS PRE               1                   201.19
+        MSORT   LA LAO MODIF POS PRE               1                   201.19
+        ASORT   LA LAO MODIF POS PRE               1                   201.19
+        ACEQU   QJ.LMODIF D                      909             1,253,002.53
+        ASORT   LA LAO MODIF POS PRE               1                   201.19
+        ECCPD   DJ.DATB PLANLALALA             2,130             1,101,003.64
+        ACEQU   QJ.LMODIF D                      909             1,253,002.53
+        ASOOT   LA LAO MODIF POS PRE               1                   201.19
+        SSORT   LA LAO LALAL POS PRE               1                   201.19
+        NSORT   LA LAO MODIF POS PRE               1                   201.19
+        MSORT   LA LAO MODIF POS PRE               1                   201.19
+        ASORT   LA LAO MODIF POS PRE               1                   201.19
+        QQQVS   AA LAA DATO MARNIA             1,921                76,801.72
+        KMM01   MM AAA BBB 1 DE 12               160                39,540.69
+        AA444   MODIFICADOA 89 DE 90           3,123               111,222.09
+        BBBD5   PARCIAPPPPD 17 DE 24           2,322               555,458.64
+        QWERT   PARCIAOOOOD 18 DE 24           3,424               836,957.61
+        123RT   QQQQIALIDAD 19 DE 24           4,428             1,093,309.61
+        POIUY   NNNNIALIDAD 20 DE 24           3,292               123,098.76
+        MNBVC   MMMMIALIDAD 21 DE 24           3,088               753,789.46
+        LKJHA   ÑÑÑÑIALIDAD 22 DE 24           2,817               648,376.92
+        BHNJM   AAAAIALIDAD 23 DE 24           2,686               587,951.04
+        MMMMM   PPPPIALIDAD 24 DE 24           2,885               661,753.56
+                                          ----------           --------------
+ TOTAL CATEGORIA:  01  CAMBIADO FEATURE      164,896            21,062,776.66
+
+
+        AAAAT   AA AAAAA BBB TOTAL                02                24,888.99
+        ABBBT   AB MNYTS TOTAL                   297               100,999.28
+                                          ----------           --------------
+ TOTAL CATEGORIA:  02  NANITMT SEVVICE           309               145,461.76
+
+
+        AOOOC   NO CARGOS                    199,660                     0.00
+                                          ----------           --------------
+ TOTAL CATEGORIA:  08  ANSHP                 199,560                     0.00
+
+
+        AUNDP   10% DesP.Band Recodo             380               -14,110.15
+        AJBAE   AJ.PENA CANC ANT CRE             442            -1,030,377.13
+        AJJDO   AJ LOOP CAMM PEE POS           1,618               -15,442.77
+        EJJPC   AJ.CAMB PANN CAMBIAD             355              -155,999.25
+        FMMIX   AJ.FIN FINNN                     930                -4,441.13
+                                          ----------           --------------
+ TOTAL CATEGORIA:  01  CAMBIADO FEATURE        9,725            -9,280,301.03
+
+
+        AMMMQ   AJ NNNN FINEQ                     40               -11,117.00
+        ANNNN   AL C D MMMM NEGATIVO             231               -33,332.59
+                                          ----------           --------------
+ TOTAL CATEGORIA:  02  NANITMT SEVVICE           271               -41,929.59
+
+
+                                          ----------           --------------
+ TOTAL CATEGORIA:  08  ANSHP                                             0.00
+
+
+
+************************************************************************************************************************************
+
+R01     CICLO -  33        FECHA DE CORTE: 03/07/18           (R1140000)
+
+             REPORTE DE AJUSTES FACTURADOS DAWES POR CICLO
+
+        KCIVA   AJ IVA IMB PARCIAL                25                   771.55
+        A1123   AJ NMT IMC 2 DE 22                 1                   333.57
+        A2203   AJ AMB IMC 3 DE 22                 2                   123.57
+        B7777   AJ AMB IMC 4 DE 12                 3                   888.57
+        K1205   AJ AMB IMC 5 DE 12                 4                   123.57
+        K1206   AJ AMB IMC 6 DE 12                 5                   999.57
+        K1207   AJ AAB IMC 7 DE 12                 1                   353.48
+        K1208   AJ AAI IMC 8 DE 12                 2                   353.48
+        K1209   AJ AAI IMC 9 DE 12                 3                   100.73
+        K1210   AJ AMC IMC 10 DE 12                4                   894.09
+        K1211   AJ AMC IMC 11 DE 12                4                   894.09
+        K1212   AJ AMC IMC 12 DE 12                5                 8,111.31
+                                          ----------           --------------
+ TOTAL CATEGORIA:  01  OPTIONAL FEATURE           50                 5,593.58
+
+
+        AJCKP   AJ AWERT ABC PARCIAL               1                   777.41
+        AJCKT   AJ CARGO ABC TOTAL                 3                 3,999.39
+        AJCPM   AJ CARGO DE PENALLLA              92                83,999.81
+        AJFIT   AJ FIIII TOTAL                     4                 4,888.01
+        AJPPM   AJ PARCIAL PENALIZA                7                 1,110.55
+        ASFAV   AJPPPP SALDO A FAVOR           2,726               296,656.29
+                                          ----------           --------------
+ TOTAL CATEGORIA:  02  NANITMT SERVICE         2,833               393,199.46
+
+
+        AJCAF   CARGOS FACTURABLES                10                 6,675.51
+                                          ----------           --------------
+ TOTAL CATEGORIA:  08  USAGE                      10                 6,675.51
+
+
+                                          ----------           --------------
+ TOTAL CATEGORIA:  01  OPTIONAL FEATURE                                  0.00
+
+
+        AJBFQ   CC OOOO FNNNQ                      2                -5,008.37
+        AJBPM   BB BO. PEN. CANC.MOR               1                -2,698.95
+        AJCEL   AD. AERVVVVV CELULAR             132                -2,264.59
+        AJCFA   AC CANCELA FAMNHYT               344              -243,056.56
+        AJFIJ   AB FOUIKTYSRSJSYO                 24               -22,846.26
+        ASMMN   AA SALDOS MEPPPPS                 72                -7,423.14
+                                          ----------           --------------
+ TOTAL CATEGORIA:  02  NANITMT SERVICE           575              -283,297.87
+
+
+                                          ----------           --------------
+ TOTAL CATEGORIA:  08  USEEE                                             0.00
+
+
+___________________________________
+create table METRICAS_AJUSTE(
+
+    FC_CAMPO1       VARCHAR2(30 BYTE)             NOT NULL,
+    REGION      VARCHAR(3 BYTE)NOT NULL,
+    CICLO     VARCHAR(2),
+    FECHA_CORTE DATE,
+    NOMBRE_CATEGORIA VARCHAR(20),
+    NOMBRE_REPORTE    VARCHAR(2),
+    CATEGORIA    varchar(20),
+    TOTAL_REGISTOS double,
+    TOTAL_IMPORTE double,
+    tipo CHAR(1)
+);
