@@ -34,7 +34,8 @@ public class DAO {
             try
             {
                 Class.forName("com.ibm.db2.jcc.DB2Driver");
-                con = DriverManager.getConnection("jdbc:db2://192.9.198.9:50000/DB2PROD", usr, pass);
+               con = DriverManager.getConnection("jdbc:oracle:thin:@10.119.142.84:1521:datamart",usr, pass);
+
             }
             catch(Exception e)
             {
