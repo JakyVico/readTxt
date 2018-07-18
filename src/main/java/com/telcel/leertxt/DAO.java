@@ -29,8 +29,10 @@ public class DAO {
             Statement stmt = null;
             String usr = USER;
             String pass = PASS; 
-        
-            //String query = "" ;
+             String query = "INSERT INTO METRICAS_AJUSTE\n"+
+                    "(REGION,CICLO,FECHA_CORTE,NOMBRE_CAT,NOMBRE_REPORTE,CATEGORIA,IMPORTE,REGISTOS,TIPO)\n"+
+                    "VALUES('R11','11','11/11/1111','prueba1','prueba1',12,1114,1145,0);" ;
+            
             try
             {
                 Class.forName("com.ibm.db2.jcc.DB2Driver");
@@ -44,8 +46,7 @@ public class DAO {
             try
             {
              stmt = con.createStatement();
-            // ResultSet rs = stmt.executeQuery(query);
-             List<ConexionBean>front2 = new ArrayList<ConexionBean>();
+             //ResultSet rs = stmt.executeQuery(query);
  
             }
             catch(SQLException e)
