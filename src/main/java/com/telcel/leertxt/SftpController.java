@@ -18,6 +18,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -28,9 +29,11 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
-public class SftpController {
+public class SftpController  {
 
     private static final String USERNAME = "servici1";
     private static final String HOST = "159.203.7.113";
@@ -43,11 +46,32 @@ public class SftpController {
     //private static String region, ciclo, fecha, nombreReporte, categoria, nombreCategoria, totalRegistos, totalImporte;
     private static String region, ciclo, fechaCorte, nombreCategoria, nombreReporte, categoria, importe, registros, tipo;
 
+    int second=0;
+    Timer timer= new Timer();
+    TimerTask task =new TimerTask() {
+        @Override
+        public void run() {
+            lecturaTxt();
+        }
+    };
+    
+    public void start(){
+        timer.schedule(task,9999 ,9999);
+      
+    }
+
     public static void main(String[] args) {
+        
+        SftpController sftpController= new SftpController();
+        sftpController.start();
+        //lecturaTxt();
+    }
+
+    private static void lecturaTxt() {
         miformato = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
         java.util.Date Ahora = new java.util.Date();
         NombreFichero = miformato.format(Ahora);
-        System.out.println("nombre ficharo"+NombreFichero);
+        System.out.println("nombre ficharo" + NombreFichero);
 
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String fileName) {
@@ -72,12 +96,9 @@ public class SftpController {
             //Listar archivos
             Vector filelist = sftp.ls("*.txt");
             System.out.println("Analizare " + filelist.size() + " archivos");
-           
-
-          
 
             System.out.println("Me movi a " + sftp.pwd());
-            
+
             for (int i = 0; i < filelist.size(); i++) {
 
                 System.out.println("Archivo " + (i + 1));
@@ -85,8 +106,8 @@ public class SftpController {
                 ChannelSftp.LsEntry entry = (ChannelSftp.LsEntry) filelist.get(i);
                 //BufferedReader br = new BufferedReader(new FileReader(entry.getFilename()));
                 BufferedReader br = new BufferedReader(new InputStreamReader(sftp.get(entry.getFilename())));
-                String nameArch=entry.getFilename();
-                System.out.println("lalal"+entry.getFilename());
+                String nameArch = entry.getFilename();
+                System.out.println("lalal" + entry.getFilename());
                 String s1 = null;
                 while ((s1 = br.readLine()) != null) {
 
@@ -104,66 +125,64 @@ public class SftpController {
                         ciclo = s1.substring(indiceF, indice2I);
                         fechaCorte = s1.substring(indice2F, indice2F + 8);
                         //fechaCorte.substring(0, 6);
-                       //System.err.println(region + "\t" + ciclo + "\t" + fechaCorte + "\n");
+                        //System.err.println(region + "\t" + ciclo + "\t" + fechaCorte + "\n");
 
                     } else if (s1.startsWith("REPORTE DE AJUSTES FACTURADOS")) {
                         s1 = s1.replaceAll(" ", "");
                         int indiceF = s1.indexOf("REPORTEDEAJUSTESFACTURADOS") + "REPORTEDEAJUSTESFACTURADOS".length();
                         int indiceC = s1.indexOf("PORCICLO");
                         nombreReporte = s1.substring(indiceF, indiceC);
-                    
+
                     } else if (s1.startsWith("TOTAL CATEGORIA:")) {
                         s1 = s1.trim();
                         int indiceF = s1.indexOf("TOTAL CATEGORIA:") + "TOTAL CATEGORIA:".length();
                         categoria = s1.substring(indiceF, indiceF + 4);
                         nombreCategoria = s1.substring(indiceF + 5, indiceF + 24);
                         registros = s1.substring(indiceF + 25, indiceF + 38);
-                       importe= s1.substring(indiceF + 39, s1.length());                       
-                        if(importe.trim().startsWith("-")){
-                            tipo="0";
-                        }else{
-                            tipo="1";
+                        importe = s1.substring(indiceF + 39, s1.length());
+                        if (importe.trim().startsWith("-")) {
+                            tipo = "0";
+                        } else {
+                            tipo = "1";
                         }
                         // System.err.println("|" + categoria + "|" + "\t\t" + "|" + nombreCategoria + "|" + "\t\t" + "|" + registros + "|" + "\t\t" + "|" + importe+"|"+tipo);
-                    }else if(s1.startsWith("*")){
-                        nombreReporte=null;
-                        categoria=null;
-                    continue;
-                }  else {
+                    } else if (s1.startsWith("*")) {
+                        nombreReporte = null;
+                        categoria = null;
+                        continue;
+                    } else {
                         // System.out.println(s1 + i);
-                      
+
                         continue;
                     }
-                   if (nombreReporte!=null&&categoria!=null&&nombreCategoria!=null&&importe!=null) {
+                    if (nombreReporte != null && categoria != null && nombreCategoria != null && importe != null) {
                         System.out.println(region + " " + ciclo + " " + fechaCorte + " " + nombreReporte + " " + categoria + " " + nombreCategoria + " " + registros + " " + importe + "-----");
                         //conexionBD(region, ciclo, fechaCorte, nombreCategoria,nombreReporte, categoria,importe, registros, tipo);
                     }
                 }
-            //Copiar archivos a otra ubicacion
-           // System.out.println("Me movi a " + sftp.pwd());
-           int count = 0;
-                 
+                //Copiar archivos a otra ubicacion
+                // System.out.println("Me movi a " + sftp.pwd());
+
                 System.out.println("kjkkjkj");
-            
-            sftp.rename(nameArch,PATHDESTINO+i+NombreFichero+".txt");
-            System.out.println("Archivo copiado");
-         //   sftp.pwd();
-               
-             continue;
-             }
+
+                sftp.rename(nameArch, PATHDESTINO + nameArch + NombreFichero + ".txt");
+                System.out.println("Archivo copiado");
+                //   sftp.pwd();
+
+            }
+            sftp.exit();
+            session.disconnect();
 
         } catch (JSchException e) {
             System.out.println("No se pudo realizar la conexión");
         } catch (SftpException e) {
             e.printStackTrace();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-//String region, String ciclo, String fechaCorte, String nombreCategoria, String nombreReporte, double categoria, double importe, double registros, int tipo
 
     public static void conexionBD(String region1, String ciclo1, String fechaCorte1, String nombreCategoria1, String nombreReporte1, String categoria1, String importe1, String registros1, String tipo1) {
 
