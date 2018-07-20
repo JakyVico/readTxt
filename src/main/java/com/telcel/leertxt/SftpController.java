@@ -32,12 +32,12 @@ import java.util.Vector;
 
 public class SftpController {
 
-    private static final String USERNAME = "postpago";
-    private static final String HOST = "10.119.142.84";
-    private static final int PORT = 22;
-    private static final String PASSWORD = "vs10e3e1";
-    private static final String PATHORIGEN = "/postpago/procesos/Metricas/Ajustes/origen/";
-    private static final String PATHDESTINO = "/postpago/procesos/Metricas/Ajustes/respaldo/";
+    private static final String USERNAME = "servici1";
+    private static final String HOST = "159.203.7.113";
+    private static final int PORT = 2223;
+    private static final String PASSWORD = "VFZDGNB34oq4";
+    private static final String PATHORIGEN = "public_html/test";
+    private static final String PATHDESTINO = "/public_html/test2/";
     private static SimpleDateFormat miformato;
     private static String NombreFichero;
     //private static String region, ciclo, fecha, nombreReporte, categoria, nombreCategoria, totalRegistos, totalImporte;
@@ -47,6 +47,7 @@ public class SftpController {
         miformato = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
         java.util.Date Ahora = new java.util.Date();
         NombreFichero = miformato.format(Ahora);
+        System.out.println("nombre ficharo"+NombreFichero);
 
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String fileName) {
@@ -67,19 +68,16 @@ public class SftpController {
             sftp.connect();
             System.out.println("Conectado en " + sftp.pwd());
             sftp.cd(PATHORIGEN);
-            System.out.println(sftp.pwd() + "eSTOY EN:::::: ");
+            //System.out.println(sftp.pwd() + "eSTOY EN:::::: ");
             //Listar archivos
             Vector filelist = sftp.ls("*.txt");
             System.out.println("Analizare " + filelist.size() + " archivos");
-            //Copiar archivos a otra ubicacion
+           
 
-            System.out.println(filelist + "TXT");
-            sftp.cd(PATHORIGEN);
-            System.out.println("qqqq" + sftp.ls(PATHORIGEN));
-
+          
 
             System.out.println("Me movi a " + sftp.pwd());
-            /*
+            
             for (int i = 0; i < filelist.size(); i++) {
 
                 System.out.println("Archivo " + (i + 1));
@@ -87,6 +85,8 @@ public class SftpController {
                 ChannelSftp.LsEntry entry = (ChannelSftp.LsEntry) filelist.get(i);
                 //BufferedReader br = new BufferedReader(new FileReader(entry.getFilename()));
                 BufferedReader br = new BufferedReader(new InputStreamReader(sftp.get(entry.getFilename())));
+                String nameArch=entry.getFilename();
+                System.out.println("lalal"+entry.getFilename());
                 String s1 = null;
                 while ((s1 = br.readLine()) != null) {
 
@@ -139,20 +139,29 @@ public class SftpController {
                         //conexionBD(region, ciclo, fechaCorte, nombreCategoria,nombreReporte, categoria,importe, registros, tipo);
                     }
                 }
+            //Copiar archivos a otra ubicacion
+           // System.out.println("Me movi a " + sftp.pwd());
+           int count = 0;
+                 
+                System.out.println("kjkkjkj");
+            
+            sftp.rename(nameArch,PATHDESTINO+i+NombreFichero+".txt");
+            System.out.println("Archivo copiado");
+         //   sftp.pwd();
                
-             
-             }*/
+             continue;
+             }
 
         } catch (JSchException e) {
             System.out.println("No se pudo realizar la conexión");
         } catch (SftpException e) {
             e.printStackTrace();
         }
-        /*catch (FileNotFoundException e) {
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 //String region, String ciclo, String fechaCorte, String nombreCategoria, String nombreReporte, double categoria, double importe, double registros, int tipo
 
