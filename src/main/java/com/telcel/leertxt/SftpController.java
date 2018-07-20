@@ -38,7 +38,7 @@ public class SftpController  {
     private static final String USERNAME = "aa";
     private static final String HOST = "159.1.7.113";
     private static final int PORT = 2223;
-    private static final String PASSWORD = "VFZDGNB34oq4";
+    private static final String PASSWORD = "oq4";
     private static final String PATHORIGEN = "public_html/test";
     private static final String PATHDESTINO = "/public_html/test2/";
     private static SimpleDateFormat miformato;
