@@ -59,13 +59,13 @@ public class SftpController  {
         timer.schedule(task,9999 ,9999);
       
     }
-
+/*
     public static void main(String[] args) {
         
         SftpController sftpController= new SftpController();
         sftpController.start();
         //lecturaTxt();
-    }
+    }*/
 
     private static void lecturaTxt() {
         miformato = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
@@ -73,14 +73,9 @@ public class SftpController  {
         NombreFichero = miformato.format(Ahora);
         System.out.println("nombre ficharo" + NombreFichero);
 
-        FilenameFilter filter = new FilenameFilter() {
-            public boolean accept(File dir, String fileName) {
-                System.out.println(fileName.endsWith("txt") + "lalalalal");
-                return fileName.endsWith("txt");
-            }
-        };
+       
 
-        JSch jsch = new JSch();
+       JSch jsch = new JSch();
         try {
             Session session = jsch.getSession(USERNAME, HOST, PORT);
             session.setConfig("PreferredAuthentications", "password");
